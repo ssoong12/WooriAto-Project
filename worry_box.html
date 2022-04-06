@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>고민상자</title>
+  <link rel="stylesheet" href="assets/css/worry_box.css">
+  <script src="assets/js/jquery-3.6.0.js"></script>
+  <script src="assets/js/jquery-ui-1.13.0/jquery-ui.min.js" defer></script>
+
+  	 <!--=============== REMIX ICONS ===============-->
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">
+        <i class="ri-bear-smile-line nav__logo-icon"></i>우리아토
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#home" class="nav__link active-link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="#thinking" class="nav__link">365일 생각조각</a>
+          </li>
+          <li class="nav__item">
+            <a href="#diary" class="nav__link">365일 일기조각</a>
+          </li>
+          <li class="nav__item">
+            <a href="#incinerator" class="nav__link">고민소각장</a>
+          </li>
+
+        </ul>
+
+        <!-- 모바일 네비게이션 close 버튼 -->
+        <div class="nav__close" id="nav-close">
+          <i class="ri-close-line"></i>
+        </div>
+      </div>
+
+      <div class="nav__btns">
+        <!-- 다크모드 변경 버튼 -->
+        <i class="ri-moon-line change-theme" id="theme-button"></i>
+        <!-- 모바일 네비게이션 opne 버튼 -->
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="worryBox">
+
+    <div id="aboutWorryImgWrap" class="container">
+      <img src="assets/img/worrybox.PNG" alt="고민상자" id="worryBoxImg">
+      <div class="aboutWorryContentWrap">
+        <h2>고민 상자</h2>
+        <p>'고민 상자'는 당신의 고민을 직접 종이에 적어 소각장에 남기거나 태워 버릴 수 있는 공간이에요.
+          당신이 어디에서도 할 수 없었던 비밀스러운 이야기부터, 누군가가 들어 줬으면 했던 이야기까지 눈치 보지 않고
+          마음껏 털어 놓을 수 있는 공간입니다. 아래에 있는 카테고리와 공개 여부를 선택해 사연을 적어 공유할 수도 있고,
+          태우기 버튼으로 사연을 태워 버릴 수도 있어요. 당신이 지금 가지고 있는 고민에 알맞는 해결법은 무엇인가요?
+        </p>
+      </div>
+    </div>
+
+    <div id="worryPostContent">
+      <form method="post" action="worryBox" modelAttribute="worryPost" class="worryBox">
+        <div id="worryPostCategoryWrap">
+          <label class="category_list"><input type="radio" name="worryPostCategory.wpcContent" value="#걱정사연"
+              checked>#걱정사연</label>
+          <label class="category_list"><input type="radio" name="worryPostCategory.wpcContent"
+              value="#슬픈사연">#슬픈사연</label> <label class="category_list"><input type="radio"
+              name="worryPostCategory.wpcContent" value="#답답사연">#답답사연</label> <label class="category_list"><input
+              type="radio" name="worryPostCategory.wpcContent" value="#분노사연">#분노사연</label> <label
+            class="category_list"><input type="radio" name="worryPostCategory.wpcContent" value="#익명사연">#익명사연</label>
+        </div>
+
+        <div id="worrySettingWrap" class="container">
+          <div id="worryPaperWrap">
+            <textarea maxlength="1000" name="wpContent" id="worryPaper"></textarea>
+            <img src="assets/img/worrypaper2.PNG" width=500 height=379 id="worryPaperImg">
+          </div>
+
+          <div id="worryOpenTypeWrap">
+            <p>공개 여부</p>
+            <label class="openType wpOpenType"><input type="radio" name="wpOpenType" value="true" id="wpOpenTypeT">공개</label>
+            <label class="openType wpOpenType"><input type="radio" name="wpOpenType" value="false" id="wpOpenTypeF"
+                checked>비공개</label>
+
+            <p>댓글 여부</p>
+            <label class="openType commentOpenType"><input type="radio" name="commentOpenType" value="true"
+                id="commentOpenTypeT">허용</label> <label class="openType commentOpenType"><input type="radio" name="commentOpenType"
+                value="false" checked id="commentOpenTypeF">비허용</label>
+          </div>
+
+          <input type="submit" id="worryBoxBtn" class="burn" value="태우기" />
+        </div>
+      </form>
+
+      <div id="worryPromotion" class="container">
+        <ul id="worryPromotionList">
+          <li><span>고민소각장에 고민을 남기고 다른 사람들과 공유하고 싶다면?</span> <a href="/pj/user/addUser">회원가입<i
+                class="ri-arrow-right-down-line button__icon"></i></a>
+          </li>
+          <li><span>다른 사람들의 고민을 들어 보고 싶으시다면?</span> <a href="/pj/worry/worryDump">고민소각장으로
+              가기<i class="ri-arrow-right-down-line button__icon"></i></a> </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<!--==================== FOOTER ====================-->
+<footer class="footer section">
+  <div class="footer__container container grid">
+      <div class="footer__content">
+          <a href="#" class="footer__logo">
+              <i class="ri-bear-smile-line nav__logo-icon"></i> 우리아토
+          </a>
+
+          <h3 class="footer__title">
+              우리아토에 가입하고, <br> 매일 새로운 소식을 알람받으세요
+          </h3>
+
+          <div class="footer__subscribe">
+              <input type="email" placeholder="이메일을 입력해 주세요." class="footer__input">
+
+              <button class="button button--flex footer__button">
+                  Login
+                  <i class="ri-arrow-right-up-line button__icon"></i>
+              </button>
+          </div>
+      </div>
+
+      <div class="footer__content">
+          <h3 class="footer__title">Our Address</h3>
+
+          <ul class="footer__data">
+              <li class="footer__information">대구광역시 중구 덕산동 61 반월센트럴타워 9층</li>
+              <li class="footer__information">입금계좌: 영한은행 353901-01-010101 이영지(영블러드)</li>
+          </ul>
+      </div>
+
+      <div class="footer__content">
+          <h3 class="footer__title">Contact Us</h3>
+
+          <ul class="footer__data">
+              <li class="footer__information">고객센터 운영시간: 평일 오전9시 ~ 오후6시</li>
+              <li class="footer__information">전화: 053-123-0101</li>
+              <li class="footer__information">팩스: 031-011-01111</li>
+              <div class="footer__social">
+                  <a href="https://www.facebook.com/" class="footer__social-link">
+                      <i class="ri-facebook-fill"></i>
+                  </a>
+                  <a href="https://www.instagram.com/" class="footer__social-link">
+                      <i class="ri-instagram-line"></i>
+                  </a>
+                  <a href="https://twitter.com/" class="footer__social-link">
+                      <i class="ri-twitter-fill"></i>
+                  </a>
+              </div>
+          </ul>
+      </div>
+
+      <div class="footer__content">
+          <h3 class="footer__title">
+              협력업체
+          </h3>
+
+          <div class="footer__cards">
+              <img src="assets/img/card1.png" alt="" class="footer__card">
+              <img src="assets/img/card2.png" alt="" class="footer__card">
+              <img src="assets/img/card3.png" alt="" class="footer__card">
+              <img src="assets/img/card4.png" alt="" class="footer__card">
+          </div>
+      </div>
+  </div>
+
+  <p class="footer__copy">Copyright 2022 Young Blood. &#169; All Right Reserved</p>
+</footer>
+
+<script type="text/javascript">
+
+  // 초기 세팅. 
+  let state = 0;
+  let categoryCheckState = 0;
+  $("#worryPaperImg").hide();
+
+  // 기본 공개 설정 false일 때의 css 설정
+  $("input[name=wpOpenType]").eq(1).prop("checked");
+  worryOpenTypeHide();
+
+  // 공개 여부가 공개일 때 댓글 여부 보이게 하는 함수
+  function worryOpenTypeShow() {
+    $("#worryOpenTypeWrap").find("p").eq(1).show();
+    $("#worryOpenTypeWrap").find(".openType").eq(2).show();
+    $("#worryOpenTypeWrap").find(".openType").eq(3).show();
+    $("#worryOpenTypeWrap").find(".openType").children("input[name=commentOpenType]").eq(0).show();
+    $("#worryOpenTypeWrap").find(".openType").children("input[name=commentOpenType]").eq(1).show();
+  }
+
+  // 공개 여부가 비공개일 때 댓글 여부 안 보이게 하는 함수
+  function worryOpenTypeHide() {
+    $("#worryOpenTypeWrap").find("p").eq(1).hide();
+    $("#worryOpenTypeWrap").find(".openType").eq(2).hide();
+    $("#worryOpenTypeWrap").find(".openType").eq(3).hide();
+    $("#worryOpenTypeWrap").find(".openType").children("input[name=commentOpenType]").eq(0).hide();
+    $("#worryOpenTypeWrap").find(".openType").children("input[name=commentOpenType]").eq(1).hide();
+  }
+
+  // .category_list 클릭되었을 때 바뀌는 효과 적용
+  $(".category_list").on("click", function () {
+    $(this).addClass("category_checked");
+    $(".category_list").not($(this)).removeClass("category_checked");
+  });
+
+  // 글 공개 여부 클릭되었을 때 바뀌는 효과 적용
+  $(".wpOpenType").on("click", function () {
+    $(this).addClass("category_checked");
+    $(".wpOpenType").not($(this)).removeClass("category_checked");
+  })
+
+  // 댓글 공개 여부 클릭되었을 때 바뀌는 효과 적용
+  $(".commentOpenType").on("click", function () {
+    $(this).addClass("category_checked");
+    $(".commentOpenType").not($(this)).removeClass("category_checked");
+  })
+
+  // 비공개 선택 시 댓글 선택 여부 가려지게끔 하는 코드 작성.
+  $("input[name=wpOpenType]").change(function () {
+    let openType_val = $(this).val();
+
+    if (openType_val == "true") {
+      worryOpenTypeShow();
+      // 밸류값 공개로 전환하는 코드
+      $("#commentOpenTypeF").prop("checked", false);
+    } else if (openType_val == "false") {
+      worryOpenTypeHide();
+      // 밸류값 비공개로 전환하는 코드
+      $("#commentOpenTypeF").prop("checked", true);
+    }
+  })
+
+  $("form.worryBox").on("submit", function () {
+    event.preventDefault();
+    let result = confirm("고민 소각장에 고민을 남기시겠습니까? 취소를 누를 시에는 고민이 태워집니다.");
+    if (result) {//확인을 눌렀을 경우
+      console.log("확인");
+      $.ajax({
+        type: 'POST',
+        url: this.action,
+        data: $(this).serialize(),
+        success: () => {
+          alert('고민 소각장에 저장되었습니다!');
+          // 태워지는 모션
+          let imgUrlNum = 1;
+          let imgPlayReturnNum = 0;
+
+          if (imgPlayReturnNum < 1 && state == 0) {
+            imgUrlNum = 1;
+
+            $("#worryPaper:not(:animated)").show();
+            $("#worryPaperImg:not(:animated)").hide().css({
+              "top": "0",
+              "left": "0"
+            });
+
+
+            // 애니메이션 실행
+            startAnimation = setInterval(worryPaperImgAnimation, 1000);
+            imgPlayReturnNum++; // state 1로 변경.
+            state = 1;
+
+            // console.
+            console.log("animation 실행됨.");
+            console.log(imgPlayReturnNum);
+          }
+
+          function worryPaperImgAnimation() {
+            console.log("실행되었습니다.")
+            if (imgUrlNum < 4 && state == 1) {
+              imgUrlNum++;
+
+              $("#worryPaper:not(:animated)").hide();
+              $("#worryPaperImg:not(:animated)").show().attr("src", "../images/worryPaper" + imgUrlNum + ".PNG");
+
+              // 크기 조정
+              if (imgUrlNum == 2) {
+                $("#worryPaperImg:not(:animated)").css({
+                  "width": "400px",
+                  "height": "402px"
+                })
+              } if (imgUrlNum == 3) {
+                $("#worryPaperImg:not(:animated)").css({
+                  "width": "300px",
+                  "height": "282px"
+                })
+              } if (imgUrlNum == 4) {
+                $("#worryPaperImg:not(:animated)").css({
+                  "width": "200px",
+                  "height": "183px"
+                }).draggable();
+
+                $("#worryBoxImg").droppable({
+                  drop: function () {
+                    $("#worryPaperImg:not(:animated)").hide();
+
+                    $("#worryPaper:not(:animated)").show().val("");
+                  }
+                })
+
+                state = 0;
+
+              }
+
+            } else if (imgUrlNum => 4) {
+              clearInterval(startAnimation);
+              imgPlayReturnNum = 0;
+              console.log("Animation 정지, 리턴 회수 담는 변수 재설정: " + imgPlayReturnNum);
+            }
+          }
+
+          $("#worryBoxBtn").on("click", function () {
+            if (imgPlayReturnNum < 1 && state == 0) {
+              imgUrlNum = 1;
+
+              // 기본값
+              $("#worryPaper:not(:animated)").show()
+              $("#worryPaperImg:not(:animated)").hide().css({
+                "top": "0",
+                "left": "0"
+              });
+              startAnimation = setInterval(worryPaperImgAnimation, 1000);
+              imgPlayReturnNum++;
+              state = 1;
+              console.log("Animation 실행, 리턴 회수 담는 변수 재설정: " + imgPlayReturnNum);
+            }
+          })
+
+        }, error: () => {
+          alert('로그인해야 이용하실 수 있습니다!');
+        }
+      });
+    } else {//취소를 눌렀을 경우
+      console.log("취소");
+      alert("고민이 태워집니다. 고민 상자에 구겨진 종이를 드래그해 주세요!");
+      // 태워지는 모션
+      let imgUrlNum = 1;
+      let imgPlayReturnNum = 0;
+
+      if (imgPlayReturnNum < 1 && state == 0) {
+        imgUrlNum = 1;
+
+        $("#worryPaper:not(:animated)").show();
+        $("#worryPaperImg:not(:animated)").hide().css({
+          "top": "0",
+          "left": "0"
+        });
+
+
+        // 애니메이션 실행
+        startAnimation = setInterval(worryPaperImgAnimation, 1000);
+        imgPlayReturnNum++; // state 1로 변경.
+        state = 1;
+
+        // console.
+        console.log("animation 실행됨.");
+        console.log(imgPlayReturnNum);
+      }
+
+      function worryPaperImgAnimation() {
+        console.log("실행되었습니다.")
+        if (imgUrlNum < 4 && state == 1) {
+          imgUrlNum++;
+
+          $("#worryPaper:not(:animated)").hide();
+          $("#worryPaperImg:not(:animated)").show().attr("src", "../images/worryPaper" + imgUrlNum + ".PNG");
+
+          // 크기 조정
+          if (imgUrlNum == 2) {
+            $("#worryPaperImg:not(:animated)").css({
+              "width": "400px",
+              "height": "402px"
+            })
+          } if (imgUrlNum == 3) {
+            $("#worryPaperImg:not(:animated)").css({
+              "width": "300px",
+              "height": "282px"
+            })
+          } if (imgUrlNum == 4) {
+            $("#worryPaperImg:not(:animated)").css({
+              "width": "200px",
+              "height": "183px"
+            }).draggable();
+
+            $("#worryBoxImg").droppable({
+              drop: function () {
+                $("#worryPaperImg:not(:animated)").hide();
+
+                $("#worryPaper:not(:animated)").show().val("");
+
+                alert("고민 상자를 이용하셨습니다. 언제든 새로운 종이는 준비되어 있으니, 고민을 털어 놓고 싶으실 때에는 고민 상자를 이용해 주세요.");
+              }
+            })
+
+            state = 0;
+
+          }
+
+        } else if (imgUrlNum => 4) {
+          clearInterval(startAnimation);
+          imgPlayReturnNum = 0;
+          console.log("Animation 정지, 리턴 회수 담는 변수 재설정: " + imgPlayReturnNum);
+        }
+      }
+
+      $("#worryBoxBtn").on("click", function () {
+        if (imgPlayReturnNum < 1 && state == 0) {
+          imgUrlNum = 1;
+
+          // 기본값
+          $("#worryPaper:not(:animated)").show()
+          $("#worryPaperImg:not(:animated)").hide().css({
+            "top": "0",
+            "left": "0"
+          });
+          startAnimation = setInterval(worryPaperImgAnimation, 1000);
+          imgPlayReturnNum++;
+          state = 1;
+          console.log("Animation 실행, 리턴 회수 담는 변수 재설정: " + imgPlayReturnNum);
+        }
+      })
+    }
+  });
+
+</script>
+</body>
+</html>

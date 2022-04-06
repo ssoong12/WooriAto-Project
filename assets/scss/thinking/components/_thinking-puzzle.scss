@@ -1,0 +1,220 @@
+/*=============== 365일 생각조각 콘텐츠 ===============*/
+@mixin grid($cols, $mgn) {
+    float: left;
+    margin-right: $mgn;
+    margin-top: $mgn;
+    width: ((100% - (($cols - 1) * $mgn)) / $cols);
+    &:nth-child(#{$cols}n){
+        margin-right: 0;
+    }
+}
+.hidden {
+        position: absolute;
+        left: -9999px;
+    }
+#thinking-question {
+    width: 100%;
+    height: 100vh;
+    background-color: aquamarine;
+    position: relative;
+    
+/* ========== 1 : 질문하기, 답변받기 ========== */    
+    &__subject {
+        margin: 0 auto;
+        width: 80%;
+        height: 35vh;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__subjectLeft {
+        width: 50%;
+        background-color: blue;
+        /* padding: 0 20px; */
+        display: flex;
+        justify-content: space-around;
+    }
+    &__questionAto {
+        width: 30%;
+
+        img {
+            margin: 40px auto;
+            padding: 0 20px;
+            width: 6em;
+            height: 6em;
+        }
+    }
+    &__question {
+        /* margin: 0px 0 0 10px; */
+        width: 70%;
+        height: 100%;
+        // background-image: url(../images/conversation.png);
+        background-size: 95% 95%;
+        background-repeat: no-repeat;
+        position:relative;
+        top: 0; 
+        bottom:0; 
+        margin-top:auto; 
+        margin-bottom:auto;
+
+        p {
+            width: 85%;
+            height: 20vh;
+            position: relative;
+            left:0; 
+            right:0; 
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: 40px; 
+            line-height: 180%;
+        }
+    }           
+    &__subjectRight {
+        width: 50%;
+        background-color: chartreuse;
+        margin: 0 auto;
+
+        #answer {
+            
+        }
+
+        fieldset {
+            border: none;
+        }
+    }
+    &__radio {
+        background-color: blueviolet;
+        float: left;
+        width: 48.6%;
+        text-align: center;
+
+        .number {
+            font-size: large;
+        }
+
+    }
+
+    &__textarea {
+        background-color: brown;
+        border: none;
+        width: 93%;
+        height: 80%;
+        margin-left: 15px;
+    }
+    &__submitBtn {
+        border: none;
+        background-color: darkgray;
+        width: 150px;
+        height: 40px;
+        margin: 10px 30%;
+    }
+}
+/* ========== 2 :  볼록퍼즐 모아보기 ========== */
+.thinking-answer {
+    margin: 0 auto;
+    width: 80%;
+    height: 70vh;
+    background-color: coral;
+
+    &__questionNav {
+
+        &-ul {
+            position: relative;
+        }
+        &-li {
+            width: 33.333%;
+            height: 6vh;
+            padding-top: 3vh;
+            float: left;
+            text-align: center;
+            position: relative;
+            left:0; 
+            right:0; 
+            top: 0;
+            bottom: 0;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: auto;
+            margin-bottom: auto;
+
+            & > a {
+                text-align: center;
+                margin: 0 auto;
+            }
+        }    
+        
+        &-li:hover {
+            background-color: chocolate;
+        }
+        
+    }
+    &__my_thinking {
+                input[type="submit"] {
+                    background: violet;
+                    border: none;
+                }
+            }
+    &__puzzleContent {
+        width: 100%;
+        height: 81vh;
+        background-color: rgb(24, 24, 51);
+        display: flex;
+        justify-content: space-around;
+        overflow: hidden;
+    }
+    &__bolokquestion{
+        width: 100%;
+    }
+    &__questionPostLeft{
+        @include grid(4, 2%);
+        width: 100%;
+        background-image: url(../../../img/볼록퍼즐.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    &__thinking_text{
+        font-size: 14px;
+        color: cornsilk;
+    }
+    &__postLike {
+        input[type="hidden"] {
+
+        }
+        p {
+
+        }
+    }
+    
+    &__check_like {
+        width: 20px;
+        height: 20px;
+        /* padding: 40px 10px 0 10px; */
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+    }
+    &__postReport {
+        input[type="hidden"] {
+
+        }
+        p {
+
+        }
+    }
+    
+    &__check_report {
+        width: 20px;
+        height: 20px;
+        /* padding: 40px 10px 0 10px; */
+        position: absolute;
+        bottom: 20px;
+        left: 45px;
+    }
+}
+/* ========== 3 : 게시판 <, > 버튼 클릭 시 게시글이 더 보이기  ========== */
+.thinking-puzzle__sliderBtn {
+    a {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+

@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--=============== FAVICON ===============-->
+<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+<!--=============== REMIX ICONS ===============-->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<!--=============== CSS ===============-->
+<link rel="stylesheet" href="assets/css/thinking_수정.css">
+
+<title>우리아토 - WooriAto</title>
+</head>
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">
+            <i class="ri-bear-smile-line nav__logo-icon"></i>우리아토
+        </a>
+
+        <div class="nav__menu-login" id="nav-menu-login">
+            <ul class="nav__list nav__menu-login__ul">
+                <li class="nav__item nav__menu-login__li userInfo">
+                    <a href="#" class="nav__link nav__menu-login__a">java님, 환영합니다.</a>
+                </li>
+
+                <li class="nav__item nav__menu-login__li logout">
+                    <a href="/pj/user/logOut" class="nav__link nav__menu-login__a">로그아웃</a>
+                </li>
+
+                <li class="nav__item nav__menu-login__li">
+                    <a href="#" class="nav__link nav__menu-login__a">나의 서랍</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="#home" class="nav__link">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#thinking" class="nav__link active-link">365일 생각조각</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#diary" class="nav__link">365일 일기조각</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#incinerator" class="nav__link">고민소각장</a>
+                </li>
+            </ul>
+
+            <!-- 모바일 네비게이션 close 버튼 -->
+            <div class="nav__close" id="nav-close">
+                <i class="ri-close-line"></i>
+            </div>
+        </div>
+
+            <div class="nav__btns">
+                <!-- 다크모드 변경 버튼 -->
+                <i class="ri-moon-line change-theme" id="theme-button"></i>
+                <!-- 모바일 네비게이션 opne 버튼 -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+   <!-- main -->
+   <section class="thinking-puzzle section container" id="main">
+      <!-- 초원 : jsp에서는 main 말고 section 써야 노란줄x -->
+      <h2 class="hidden">메인 페이지</h2>
+      <!-- section1. 생각조각 -->
+      <section class="thinking-question" id="thinking-question">
+         <h3 class="hidden">365일 생각조각</h3>
+         <div class="thinking-question__subject container grid">
+            <div class="thinking-question__subjectLeft">
+               <div class="thinking-question__questionAto">
+                  <img src="assets/img/똑똑이쿼카.png" alt="질문 중인 아토">
+               </div>
+               <div class="thinking-question__question">
+                  <p>
+                     "당신은 어떤 프로포즈를 받겠습니까?" <br>아토에게 말해줘요! <br>1번. 100만원 상당
+                     선물 <br>2번. 1000만원 상당 이벤트
+                  </p>
+               </div>
+            </div>
+            <div class="thinking-question__subjectRight">
+               <form id="answer" action="thinking" method="post">
+                  <fieldset>
+                     <!-- 생각 조각의 의견 true = 1번, false = 2번 -->
+                     <div class="thinking-question__radio">
+                        <input type="radio" id="number1" name="postChoicedOpn"
+                           value="true" checked><label for="number1"
+                           class="number">1번</label>
+                     </div>
+                     &nbsp;&nbsp;&nbsp;
+                     <div class="thinking-question__radio">
+                        <input type="radio" id="number2" name="postChoicedOpn"
+                           value="false"><label for="number2" class="number">
+                           2번</label>
+                     </div>
+                  </fieldset>
+                  <textarea form="answer" maxlength="150" class="thinking-question__textarea"
+                     placeholder="당신의 생각을 말해 주세요." required="required"
+                     name="postContent" rows="7" cols="30"></textarea>
+                  <br>
+                  <input type="submit" value="작성하기" class="thinking-question__submitBtn">
+               </form>
+            </div>
+        </div>
+        </section>
+         <section class="thinking-answer" id="thinking-answer">
+            <h4 class="hidden">답변</h4>
+            <div class="thinking-answer__questionNav">
+               <ul class="thinking-answer__questionNav-ul">
+                  <li class="thinking-answer__questionNav-li"><a href="thinking">최신순</a></li>
+                  <li class="thinking-answer__questionNav-li"><a href="#">인기순</a></li>
+                  <li class="thinking-answer__questionNav-li">
+                        <form id="command" class="thinking-answer__my_thinking" action="myThinking" method="post">
+                           <input type="submit" value="내가 쓴 글" name="myWrite">
+                        </form>
+                     </li>
+               </ul>
+            </div>
+            <div class="thinking-answer__puzzleContent">
+               <div class="thinking-answer__bolokquestion">
+                  <h5 class="hidden">볼록퍼즐</h5>
+                  
+                     
+                        
+                  <div class="thinking-answer__questionPostLeft puzzlefalse">
+                    <p class="thinking-answer__thinking_text">보령언니 사랑해요 - 초원</p>
+                    
+                       <!-- 수정/삭제 -->
+                       <!-- 버튼 눌렀을 때 postId 받아오려고 생성 -->
+                       <input type="hidden" class="thinking-answer__postId" value="55">
+                       <input type="button" class="thinking-answer__revise_btn" value="수정">
+
+                       <!-- 수정 -->
+                       <form id="postRdCommand" class="thinking-answer__revise_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="R">
+                          <textarea maxlength="150" required="required" name="postRContent" rows="7" cols="30" placeholder="보령언니 사랑해요 - 초원" style="display: none;"></textarea>
+                          <input type="submit" value="수정" style="display: none;">
+                       </form>
+
+                       <!-- 삭제 -->
+                       <form id="postRdCommand" class="thinking-answer__delete_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="D">
+                          <input type="submit" value="삭제" class="thinking-answer__delete_thinking_btn">
+                       </form>
+                    
+                 
+                    <!-- 
+                    <a href="#" class="postLike">좋아요 : </a>
+                    <a href="#" class="postReport">신고하기 : </a>
+                     -->
+
+                    <form id="postCommand" class="thinking-answer__postLike" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.likeCountNum" name="countNum.likeCountNum" value="1" type="hidden">
+                       <input id="csType" name="csType" value="L" type="hidden">
+                       
+                          
+                          
+                             <p>1</p>
+                          
+                       
+                       
+                          
+                             
+                                
+                                
+                                   <input type="submit" value="좋아요" class="thinking-answer__check_like">
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                    <form id="postCommand" class="thinking-answer__postReport" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.reportCountNum" name="countNum.reportCountNum" value="2" type="hidden">
+                       <input id="csType" name="csType" value="R" type="hidden">
+                       
+                          
+                          
+                             <p>2</p>
+                          
+                       
+                       <!--
+                          
+                          
+                             <p class="report_text">2</p>
+                          
+                       -->
+                       
+                          
+                             
+                                 
+                                   <input type="submit" class="thinking-answer__check_report" value="신고하기">
+                                
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                 </div>
+              
+                 <div class="thinking-answer__questionPostLeft puzzlefalse">
+                    <p class="thinking-answer__thinking_text">보령언니 사랑해요 - 초원</p>
+                    
+                       <!-- 수정/삭제 -->
+                       <!-- 버튼 눌렀을 때 postId 받아오려고 생성 -->
+                       <input type="hidden" class="thinking-answer__postId" value="55">
+                       <input type="button" class="thinking-answer__revise_btn" value="수정">
+
+                       <!-- 수정 -->
+                       <form id="postRdCommand" class="thinking-answer__revise_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="R">
+                          <textarea maxlength="150" required="required" name="postRContent" rows="7" cols="30" placeholder="보령언니 사랑해요 - 초원" style="display: none;"></textarea>
+                          <input type="submit" value="수정" style="display: none;">
+                       </form>
+
+                       <!-- 삭제 -->
+                       <form id="postRdCommand" class="thinking-answer__delete_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="D">
+                          <input type="submit" value="삭제" class="thinking-answer__delete_thinking_btn">
+                       </form>
+                    
+                 
+                    <!-- 
+                    <a href="#" class="postLike">좋아요 : </a>
+                    <a href="#" class="postReport">신고하기 : </a>
+                     -->
+
+                    <form id="postCommand" class="thinking-answer__postLike" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.likeCountNum" name="countNum.likeCountNum" value="1" type="hidden">
+                       <input id="csType" name="csType" value="L" type="hidden">
+                       
+                          
+                          
+                             <p>1</p>
+                          
+                       
+                       
+                          
+                             
+                                
+                                
+                                   <input type="submit" value="좋아요" class="thinking-answer__check_like">
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                    <form id="postCommand" class="thinking-answer__postReport" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.reportCountNum" name="countNum.reportCountNum" value="2" type="hidden">
+                       <input id="csType" name="csType" value="R" type="hidden">
+                       
+                          
+                          
+                             <p>2</p>
+                          
+                       
+                       <!--
+                          
+                          
+                             <p class="report_text">2</p>
+                          
+                       -->
+                       
+                          
+                             
+                                 
+                                   <input type="submit" class="thinking-answer__check_report" value="신고하기">
+                                
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                 </div>
+
+                   <div class="thinking-answer__questionPostLeft puzzlefalse">
+                    <p class="thinking-answer__thinking_text">보령언니 사랑해요 - 초원</p>
+                    
+                       <!-- 수정/삭제 -->
+                       <!-- 버튼 눌렀을 때 postId 받아오려고 생성 -->
+                       <input type="hidden" class="thinking-answer__postId" value="55">
+                       <input type="button" class="thinking-answer__revise_btn" value="수정">
+
+                       <!-- 수정 -->
+                       <form id="postRdCommand" class="thinking-answer__revise_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="R">
+                          <textarea maxlength="150" required="required" name="postRContent" rows="7" cols="30" placeholder="보령언니 사랑해요 - 초원" style="display: none;"></textarea>
+                          <input type="submit" value="수정" style="display: none;">
+                       </form>
+
+                       <!-- 삭제 -->
+                       <form id="postRdCommand" class="thinking-answer__delete_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="D">
+                          <input type="submit" value="삭제" class="thinking-answer__delete_thinking_btn">
+                       </form>
+                    
+                 
+                    <!-- 
+                    <a href="#" class="postLike">좋아요 : </a>
+                    <a href="#" class="postReport">신고하기 : </a>
+                     -->
+
+                    <form id="postCommand" class="thinking-answer__postLike" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.likeCountNum" name="countNum.likeCountNum" value="1" type="hidden">
+                       <input id="csType" name="csType" value="L" type="hidden">
+                       
+                          
+                          
+                             <p>1</p>
+                          
+                       
+                       
+                          
+                             
+                                
+                                
+                                   <input type="submit" value="좋아요" class="thinking-answer__check_like">
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                    <form id="postCommand" class="thinking-answer__postReport" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.reportCountNum" name="countNum.reportCountNum" value="2" type="hidden">
+                       <input id="csType" name="csType" value="R" type="hidden">
+                       
+                          
+                          
+                             <p>2</p>
+                          
+                       
+                       <!--
+                          
+                          
+                             <p class="report_text">2</p>
+                          
+                       -->
+                       
+                          
+                             
+                                 
+                                   <input type="submit" class="thinking-answer__check_report" value="신고하기">
+                                
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                 </div>
+              
+                 <div class="thinking-answer__questionPostLeft puzzlefalse">
+                    <p class="thinking-answer__thinking_text">보령언니 사랑해요 - 초원</p>
+                    
+                       <!-- 수정/삭제 -->
+                       <!-- 버튼 눌렀을 때 postId 받아오려고 생성 -->
+                       <input type="hidden" class="thinking-answer__postId" value="55">
+                       <input type="button" class="thinking-answer__revise_btn" value="수정">
+
+                       <!-- 수정 -->
+                       <form id="postRdCommand" class="thinking-answer__revise_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="R">
+                          <textarea maxlength="150" required="required" name="postRContent" rows="7" cols="30" placeholder="보령언니 사랑해요 - 초원" style="display: none;"></textarea>
+                          <input type="submit" value="수정" style="display: none;">
+                       </form>
+
+                       <!-- 삭제 -->
+                       <form id="postRdCommand" class="thinking-answer__delete_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="D">
+                          <input type="submit" value="삭제" class="thinking-answer__delete_thinking_btn">
+                       </form>
+                    
+                 
+                    <!-- 
+                    <a href="#" class="postLike">좋아요 : </a>
+                    <a href="#" class="postReport">신고하기 : </a>
+                     -->
+
+                    <form id="postCommand" class="thinking-answer__postLike" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.likeCountNum" name="countNum.likeCountNum" value="1" type="hidden">
+                       <input id="csType" name="csType" value="L" type="hidden">
+                       
+                          
+                          
+                             <p>1</p>
+                          
+                       
+                       
+                          
+                             
+                                
+                                
+                                   <input type="submit" value="좋아요" class="thinking-answer__check_like">
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                    <form id="postCommand" class="thinking-answer__postReport" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.reportCountNum" name="countNum.reportCountNum" value="2" type="hidden">
+                       <input id="csType" name="csType" value="R" type="hidden">
+                       
+                          
+                          
+                             <p>2</p>
+                          
+                       
+                       <!--
+                          
+                          
+                             <p class="report_text">2</p>
+                          
+                       -->
+                       
+                          
+                             
+                                 
+                                   <input type="submit" class="thinking-answer__check_report" value="신고하기">
+                                
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                 </div>
+              
+                 <div class="thinking-answer__questionPostLeft puzzlefalse">
+                    <p class="thinking-answer__thinking_text">보령언니 사랑해요 - 초원</p>
+                    
+                       <!-- 수정/삭제 -->
+                       <!-- 버튼 눌렀을 때 postId 받아오려고 생성 -->
+                       <input type="hidden" class="thinking-answer__postId" value="55">
+                       <input type="button" class="thinking-answer__revise_btn" value="수정">
+
+                       <!-- 수정 -->
+                       <form id="postRdCommand" class="thinking-answer__revise_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="R">
+                          <textarea maxlength="150" required="required" name="postRContent" rows="7" cols="30" placeholder="보령언니 사랑해요 - 초원" style="display: none;"></textarea>
+                          <input type="submit" value="수정" style="display: none;">
+                       </form>
+
+                       <!-- 삭제 -->
+                       <form id="postRdCommand" class="thinking-answer__delete_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="D">
+                          <input type="submit" value="삭제" class="thinking-answer__delete_thinking_btn">
+                       </form>
+                    
+                 
+                    <!-- 
+                    <a href="#" class="postLike">좋아요 : </a>
+                    <a href="#" class="postReport">신고하기 : </a>
+                     -->
+
+                    <form id="postCommand" class="thinking-answer__postLike" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.likeCountNum" name="countNum.likeCountNum" value="1" type="hidden">
+                       <input id="csType" name="csType" value="L" type="hidden">
+                       
+                          
+                          
+                             <p>1</p>
+                          
+                       
+                       
+                          
+                             
+                                
+                                
+                                   <input type="submit" value="좋아요" class="thinking-answer__check_like">
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                    <form id="postCommand" class="thinking-answer__postReport" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.reportCountNum" name="countNum.reportCountNum" value="2" type="hidden">
+                       <input id="csType" name="csType" value="R" type="hidden">
+                       
+                          
+                          
+                             <p>2</p>
+                          
+                       
+                       <!--
+                          
+                          
+                             <p class="report_text">2</p>
+                          
+                       -->
+                       
+                          
+                             
+                                 
+                                   <input type="submit" class="thinking-answer__check_report" value="신고하기">
+                                
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                 </div>
+              
+                 <div class="thinking-answer__questionPostLeft puzzlefalse">
+                    <p class="thinking-answer__thinking_text">보령언니 사랑해요 - 초원</p>
+                    
+                       <!-- 수정/삭제 -->
+                       <!-- 버튼 눌렀을 때 postId 받아오려고 생성 -->
+                       <input type="hidden" class="thinking-answer__postId" value="55">
+                       <input type="button" class="thinking-answer__revise_btn" value="수정">
+
+                       <!-- 수정 -->
+                       <form id="postRdCommand" class="thinking-answer__revise_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="R">
+                          <textarea maxlength="150" required="required" name="postRContent" rows="7" cols="30" placeholder="보령언니 사랑해요 - 초원" style="display: none;"></textarea>
+                          <input type="submit" value="수정" style="display: none;">
+                       </form>
+
+                       <!-- 삭제 -->
+                       <form id="postRdCommand" class="thinking-answer__delete_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="D">
+                          <input type="submit" value="삭제" class="thinking-answer__delete_thinking_btn">
+                       </form>
+                    
+                 
+                    <!-- 
+                    <a href="#" class="postLike">좋아요 : </a>
+                    <a href="#" class="postReport">신고하기 : </a>
+                     -->
+
+                    <form id="postCommand" class="thinking-answer__postLike" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.likeCountNum" name="countNum.likeCountNum" value="1" type="hidden">
+                       <input id="csType" name="csType" value="L" type="hidden">
+                       
+                          
+                          
+                             <p>1</p>
+                          
+                       
+                       
+                          
+                             
+                                
+                                
+                                   <input type="submit" value="좋아요" class="thinking-answer__check_like">
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                    <form id="postCommand" class="thinking-answer__postReport" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.reportCountNum" name="countNum.reportCountNum" value="2" type="hidden">
+                       <input id="csType" name="csType" value="R" type="hidden">
+                       
+                          
+                          
+                             <p>2</p>
+                          
+                       
+                       <!--
+                          
+                          
+                             <p class="report_text">2</p>
+                          
+                       -->
+                       
+                          
+                             
+                                 
+                                   <input type="submit" class="thinking-answer__check_report" value="신고하기">
+                                
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                 </div>
+
+                   <div class="thinking-answer__questionPostLeft puzzlefalse">
+                    <p class="thinking-answer__thinking_text">보령언니 사랑해요 - 초원</p>
+                    
+                       <!-- 수정/삭제 -->
+                       <!-- 버튼 눌렀을 때 postId 받아오려고 생성 -->
+                       <input type="hidden" class="thinking-answer__postId" value="55">
+                       <input type="button" class="thinking-answer__revise_btn" value="수정">
+
+                       <!-- 수정 -->
+                       <form id="postRdCommand" class="thinking-answer__revise_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="R">
+                          <textarea maxlength="150" required="required" name="postRContent" rows="7" cols="30" placeholder="보령언니 사랑해요 - 초원" style="display: none;"></textarea>
+                          <input type="submit" value="수정" style="display: none;">
+                       </form>
+
+                       <!-- 삭제 -->
+                       <form id="postRdCommand" class="thinking-answer__delete_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="D">
+                          <input type="submit" value="삭제" class="thinking-answer__delete_thinking_btn">
+                       </form>
+                    
+                 
+                    <!-- 
+                    <a href="#" class="postLike">좋아요 : </a>
+                    <a href="#" class="postReport">신고하기 : </a>
+                     -->
+
+                    <form id="postCommand" class="thinking-answer__postLike" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.likeCountNum" name="countNum.likeCountNum" value="1" type="hidden">
+                       <input id="csType" name="csType" value="L" type="hidden">
+                       
+                          
+                          
+                             <p>1</p>
+                          
+                       
+                       
+                          
+                             
+                                
+                                
+                                   <input type="submit" value="좋아요" class="thinking-answer__check_like">
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                    <form id="postCommand" class="thinking-answer__postReport" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.reportCountNum" name="countNum.reportCountNum" value="2" type="hidden">
+                       <input id="csType" name="csType" value="R" type="hidden">
+                       
+                          
+                          
+                             <p>2</p>
+                          
+                       
+                       <!--
+                          
+                          
+                             <p class="report_text">2</p>
+                          
+                       -->
+                       
+                          
+                             
+                                 
+                                   <input type="submit" class="thinking-answer__check_report" value="신고하기">
+                                
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                 </div>
+              
+                 <div class="thinking-answer__questionPostLeft puzzlefalse">
+                    <p class="thinking-answer__thinking_text">보령언니 사랑해요 - 초원</p>
+                    
+                       <!-- 수정/삭제 -->
+                       <!-- 버튼 눌렀을 때 postId 받아오려고 생성 -->
+                       <input type="hidden" class="thinking-answer__postId" value="55">
+                       <input type="button" class="thinking-answer__revise_btn" value="수정">
+
+                       <!-- 수정 -->
+                       <form id="postRdCommand" class="thinking-answer__revise_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="R">
+                          <textarea maxlength="150" required="required" name="postRContent" rows="7" cols="30" placeholder="보령언니 사랑해요 - 초원" style="display: none;"></textarea>
+                          <input type="submit" value="수정" style="display: none;">
+                       </form>
+
+                       <!-- 삭제 -->
+                       <form id="postRdCommand" class="thinking-answer__delete_thinking" action="myThinkingRd" method="post">
+                          <input type="hidden" name="postId" value="55">
+                          <input type="hidden" name="rdType" value="D">
+                          <input type="submit" value="삭제" class="thinking-answer__delete_thinking_btn">
+                       </form>
+                    
+                 
+                    <!-- 
+                    <a href="#" class="postLike">좋아요 : </a>
+                    <a href="#" class="postReport">신고하기 : </a>
+                     -->
+
+                    <form id="postCommand" class="thinking-answer__postLike" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.likeCountNum" name="countNum.likeCountNum" value="1" type="hidden">
+                       <input id="csType" name="csType" value="L" type="hidden">
+                       
+                          
+                          
+                             <p>1</p>
+                          
+                       
+                       
+                          
+                             
+                                
+                                
+                                   <input type="submit" value="좋아요" class="thinking-answer__check_like">
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                    <form id="postCommand" class="thinking-answer__postReport" action="thinking" method="post">
+                       <input id="postId" name="postId" value="55" type="hidden">
+                       
+                       <input id="countNum.reportCountNum" name="countNum.reportCountNum" value="2" type="hidden">
+                       <input id="csType" name="csType" value="R" type="hidden">
+                       
+                          
+                          
+                             <p>2</p>
+                          
+                       
+                       <!--
+                          
+                          
+                             <p class="report_text">2</p>
+                          
+                       -->
+                       
+                          
+                             
+                                 
+                                   <input type="submit" class="thinking-answer__check_report" value="신고하기">
+                                
+                                
+                             
+                          
+                          
+                       
+                    </form>
+                 </div>
+              
+           
+        
+        
+     </section>
+  </section>
+  <!-- 이동버튼넣기 (slick slider) slick slider 안써서 class 제거-->
+  <section>
+     
+     
+        
+           <!-- thinking에서 왔을 경우 -->
+           <div class="thinking-puzzle__sliderBtn">
+              <form method="post" action="myThinking">
+                 <input type="submit" name="current_page" value="1" class="a">
+              </form>
+           
+              <form method="post" action="myThinking">
+                 <input type="submit" name="current_page" value="2" class="a">
+              </form>
+           
+              <form method="post" action="myThinking">
+                 <input type="submit" name="current_page" value="3" class="a">
+              </form>
+           </div>
+         </section>
+      </section>
+       <!--==================== FOOTER ====================-->
+       <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <a href="#" class="footer__logo">
+                    <i class="ri-bear-smile-line nav__logo-icon"></i> 우리아토
+                </a>
+
+                <h3 class="footer__title">
+                    우리아토에 가입하고, <br> 매일 새로운 소식을 알람받으세요
+                </h3>
+
+                <div class="footer__subscribe">
+                    <input type="email" placeholder="이메일을 입력해 주세요." class="footer__input">
+
+                    <button class="button button--flex footer__button">
+                        Login
+                        <i class="ri-arrow-right-up-line button__icon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Our Address</h3>
+
+                <ul class="footer__data">
+                    <li class="footer__information">대구광역시 중구 덕산동 61 반월센트럴타워 9층</li>
+                    <li class="footer__information">입금계좌: 영한은행 353901-01-010101 이영지(영블러드)</li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Contact Us</h3>
+
+                <ul class="footer__data">
+                    <li class="footer__information">고객센터 운영시간: 평일 오전9시 ~ 오후6시</li>
+                    <li class="footer__information">전화: 053-123-0101</li>
+                    <li class="footer__information">팩스: 031-011-01111</li>
+                    <div class="footer__social">
+                        <a href="https://www.facebook.com/" class="footer__social-link">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="footer__social-link">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="https://twitter.com/" class="footer__social-link">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">
+                    협력업체
+                </h3>
+
+                <div class="footer__cards">
+                    <img src="assets/img/card1.png" alt="" class="footer__card">
+                    <img src="assets/img/card2.png" alt="" class="footer__card">
+                    <img src="assets/img/card3.png" alt="" class="footer__card">
+                    <img src="assets/img/card4.png" alt="" class="footer__card">
+                </div>
+            </div>
+        </div>
+
+        <p class="footer__copy">Copyright 2022 Young Blood. &#169; All Right Reserved</p>
+    </footer>
+    
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up"> 
+        <i class="ri-arrow-up-fill scrollup__icon"></i>
+    </a>
+
+    <!--=============== SCROLL REVEAL. 스크롤 시 항목이 천천히 나타남 ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/jquery-3.6.0.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

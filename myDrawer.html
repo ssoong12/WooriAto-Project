@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<!--=============== FAVICON ===============-->
+<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+<!--=============== REMIX ICONS ===============-->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<!--=============== CSS ===============-->
+<link rel="stylesheet" href="assets/css/myDrawer.css">
+
+<!--=============== GALLERY =================-->
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<!-- <link rel="stylesheet" type="text/css" href="assets/gallery/css/reset.css"> -->
+<link rel="stylesheet" type="text/css" href="assets/gallery/css/jquery-responsiveGallery.css">
+<style type="text/css">
+    .w-gallery{
+        margin-top: 3rem;
+    }
+</style>
+<script type="text/javascript" src="assets/gallery/lib/modernizr.custom.js" defer></script>
+	<!-- <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script> -->
+    <script src="assets/gallery/lib/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="assets/gallery/src/jquery.responsiveGallery.js" defer></script>
+<script type="text/javascript">
+		$(function () {
+            $('.responsiveGallery-wrapper').responsiveGallery({
+                animatDuration: 400, // 돌아가는 속도
+                $btn_prev: $('.responsiveGallery-btn_prev'),
+                $btn_next: $('.responsiveGallery-btn_next')
+            });
+		});
+		
+</script>
+
+<!--=============== SCROLL REVEAL. 스크롤 시 항목이 천천히 나타남 ===============-->
+<script src="assets/js/scrollreveal.min.js"></script>
+        
+<!--=============== MAIN JS ===============-->
+<script src="assets/js/jquery-3.6.0.js"></script>
+<script src="assets/js/main.js" defer></script>
+
+<!--     Gallery       -->
+<script>     
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>     
+
+<title>우리아토 - WooriAto</title>
+</head>
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">
+            <i class="ri-bear-smile-line nav__logo-icon"></i>우리아토
+        </a>
+
+        <div class="nav__menu-login" id="nav-menu-login">
+            <ul class="nav__list nav__menu-login__ul">
+                <li class="nav__item nav__menu-login__li userInfo">
+                    <a href="#" class="nav__link nav__menu-login__a">java님, 환영합니다.</a>
+                </li>
+
+                <li class="nav__item nav__menu-login__li logout">
+                    <a href="/pj/user/logOut" class="nav__link nav__menu-login__a">로그아웃</a>
+                </li>
+
+                <li class="nav__item nav__menu-login__li">
+                    <a href="#" class="nav__link nav__menu-login__a active-link">나의 서랍</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="#home" class="nav__link">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#thinking" class="nav__link">365일 생각조각</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#diary" class="nav__link">365일 일기조각</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#incinerator" class="nav__link">고민소각장</a>
+                </li>
+            </ul>
+
+            <!-- 모바일 네비게이션 close 버튼 -->
+            <div class="nav__close" id="nav-close">
+                <i class="ri-close-line"></i>
+            </div>
+        </div>
+
+            <div class="nav__btns">
+                <!-- 다크모드 변경 버튼 -->
+                <i class="ri-moon-line change-theme" id="theme-button"></i>
+                <!-- 모바일 네비게이션 opne 버튼 -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="myDrawer section container" id="myDrawer">
+        <h2 class="myDrawer__title">나의 서랍</h2>
+
+        <section class="userInfo__container section container" id="userInfo">
+            <div class="userInfo__me">
+                <h3 class="userInfo__title">내 정보</h3>
+                <img src="assets/img/발표쿼카.png" alt="" class="userInfo__img">
+            </div>
+
+            <table class="userInfo__infoBox">
+                <tr class="userInfo__information">
+                    <th class="userInfo__infoTitle">이메일</th>
+                    <td class="userInfo__information-detail">test1@naver.com</td>
+                </tr>
+                <tr class="userInfo__information">
+                    <th class="userInfo__infoTitle">비밀번호</th>
+                    <td class="userInfo__information-detail">
+                        <form id="command" name="myDrawerUserInfo" class="myDrawerUserInfo"
+                            action="/pj/drawer/doUpdateDatePuzzle" method="post">
+
+                            <p class="update_password">test1</p>
+                            <input type="button" class="update_btn" value="수정" />
+                            <input type="text" class="userNickname" name="userNickname" value="이승현천재"
+                                style="display: none;" />
+                            <input type="button" value="수정" class="thinking-answer__revise_btn"/>
+                        </form>
+                    </td>
+                </tr>
+                <tr class="userInfo__information">
+                    <th class="userInfo__infoTitle">닉네임</th>
+                    <td class="userInfo__information-detail">
+                        <form id="command" name="myDrawerUserInfo" class="myDrawerUserInfo"
+                            action="/pj/drawer/doUpdateDatePuzzle" method="post">
+
+                            <p class="update_nickname">이승현천재</p>
+                            <input type="button" class="update_btn" value="수정" />
+                            <input type="text" class="userNickname" name="userNickname" value="이승현천재"
+                                style="display: none;" />
+                            <input type="submit" value="수정" class="userNickname update_btn" style="display: none;" />
+                        </form>
+                    </td>
+                </tr>
+                <tr class="userInfo__information">
+                    <th class="userInfo__infoTitle">생년월일</th>
+                    <td class="userInfo__information-detail">2022-01-07</td>
+                </tr>
+                <tr class="userInfo__information">
+                    <th class="userInfo__infoTitle">받은 하트 수</th>
+                    <td class="userInfo__information-detail">10
+                        <input name="heartNum" type="hidden" value="10" />
+                    </td>
+                </tr>
+            </table>
+            <div class="userInfo__heart">
+                <span class="userInfo__heart-get">하트 따러 가자!</span>
+
+                <div class="userInfo__heart-links">
+                    <a href="https://www.facebook.com/" target="_blank" class="userInfo__heart-link">
+                        <i class="ri-heart-3-fill"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" class="userInfo__heart-link">
+                        <i class="ri-hand-heart-fill"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" class="userInfo__heart-link">
+                        <i class="ri-heart-add-fill"></i>
+                    </a>
+                </div>
+
+        </section>
+
+        <section class="myPuzzle section container" id="myPuzzle">
+            <h3 class="myPuzzle__h3">나의 퍼즐</h3>
+
+            <div class="myPuzzle__dateBtn">
+            <!-- 이전 버튼 -->
+            <form method="post" action="/pj/drawer/myDrawer">
+                <input type="hidden" name="viewDate" value="2022-01-22" />
+                <input type="submit" class="myPuzzle__preBtn" name="monthDirection" value="preMonth">
+            </form>
+            
+            <!-- 년 월 날짜 -->
+            <p class="myPuzzle__date">2022년 1월</p>
+
+            <!-- 이후 버튼 -->
+            <form method="post" action="/pj/drawer/myDrawer">
+                <input type="hidden" name="viewDate" value="2022-01-22" />
+                <input type="submit" class="myPuzzle__postBtn" name="monthDirection" value="postMonth">
+            </form>
+            </div>
+
+            <!-- 부족한 하트 채우기 alert <p>하트 1로 퍼즐조각을 채우시겠습니까? (확인)</p> -->
+            <div class="myMonthPuzzle" id="myMonthPuzzle">
+
+                <!-- 나의퍼즐 월별 현황 -->
+                <div class="myMonthPuzzle__nowPuzzle">
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-01" />
+                    <input type="submit" class="pz-tt_df" name="myPuzzleDate" value="1" />
+                </form>
+
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-02" />
+                    <input type="submit" class="pz-tt_df" name="myPuzzleDate" value="2" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-03" />
+                    <input type="submit" class="pz-tt_dt" name="myPuzzleDate" value="3" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-04" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="4" />
+                </form>
+
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-05" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="5" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-06" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="6" />
+                </form>
+
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-07" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="7" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-08" />
+                    <input type="submit" class="pz-tt_df" name="myPuzzleDate" value="8" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-09" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="9" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-10" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="10" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-11" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="11" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-12" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="12" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-13" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="13" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-14" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="14" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-15" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="15" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-16" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="16" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-17" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="17" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-18" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="18" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-19" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="19" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-20" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="20" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-21" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="21" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-22" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="22" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-23" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="23" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-24" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="24" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-25" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="25" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-26" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="26" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-27" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="27" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-28" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="28" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-29" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="29" />
+                </form>
+
+                <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                    <input type="hidden" name="puzzleDate" value="2022-01-30" />
+                    <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="30" />
+                </form>
+
+
+                <div class="exampleDiv">
+                    <form action="/pj/drawer/doUpdateHeartNum" method="post" class="myDrawer_datePuzzle">
+                        <input type="hidden" name="puzzleDate" value="2022-01-31" />
+                        <input type="submit" class="pz-tf_df" name="myPuzzleDate" value="31" />
+                    </form>
+                    <p class="myPuzzle___mustRead">* 31일 모두 채워야 퍼즐을 완성할 수 있습니다</p>
+
+                </div>
+            </div>
+            </div>
+
+            <div class="storage section container" id="storage">
+                <h3 class="hidden">보관함</h3>
+                <input type="button" class="storage__toggleBtn" name="storageOpen" value="보관함">
+                <div class="w-gallery">
+                    <section id="responsiveGallery-container" class="responsiveGallery-container">
+                     <a class="responsiveGallery-btn responsiveGallery-btn_prev" href="javascript:void(0);"></a> 
+                     <a class="responsiveGallery-btn responsiveGallery-btn_next" href="javascript:void(0);"></a>
+                      <ul class="responsiveGallery-wrapper">
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/1.jpg" height="320" width="320" alt="" class="responsivGallery-pic">
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 01월</h2>
+                            <h3 class="responsivGallery-position">새해 복 많이 받으세요!</h3>
+                          </div></a>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/2.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 02월</h2>
+                            <h3 class="responsivGallery-position">봄이 다가오고 있어요.</h3>
+                          </div>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/3.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 03월</h2>
+                            <h3 class="responsivGallery-position">새로운 시작을 축하해요!</h3>
+                          </div>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/4.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 04월</h2>
+                            <h3 class="responsivGallery-position">예쁘게 핀 꽃을 보러 가는 건 어때요?</h3>
+                          </div>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/5.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 05월</h2>
+                            <h3 class="responsivGallery-position">가족의 소중함을 생각해요.</h3>
+                          </div>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/6.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 06월</h2>
+                            <h3 class="responsivGallery-position">여름이 다가와요.</h3>
+                          </div>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/7.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 07월</h2>
+                            <h3 class="responsivGallery-position">진짜 여름이 왔어요.</h3>
+                          </div>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/8.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 08월</h2>
+                            <h3 class="responsivGallery-position">삼계탕을 꼭 드세요,</h3>
+                          </div>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/9.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 09월</h2>
+                            <h3 class="responsivGallery-position">가을이 다가와요!</h3>
+                          </div>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/10.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 10월</h2>
+                            <h3 class="responsivGallery-position">트렌치코트를 입어요.</h3>
+                          </div>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/11.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 11월</h2>
+                            <h3 class="responsivGallery-position">롱패딩을 꺼내 입어요.</h3>
+                          </div>
+                        </li>
+                        <li class="responsiveGallery-item"> <a href="#" class="responsivGallery-link">
+                          <img src="assets/gallery/assets/pics/12.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                          <div class="w-responsivGallery-info">
+                            <h2 class="responsivGallery-name">2021년 12월</h2>
+                            <h3 class="responsivGallery-position">올 한해도 수고했어요!</h3>
+                          </div>
+                        </li>
+                      </ul>
+                    </section>
+                  </div>
+                  
+            </div>
+        </section>
+    </section>
+           <!--==================== FOOTER ====================-->
+           <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">
+                        <i class="ri-bear-smile-line nav__logo-icon"></i> 우리아토
+                    </a>
+    
+                    <h3 class="footer__title">
+                        우리아토에 가입하고, <br> 매일 새로운 소식을 알람받으세요
+                    </h3>
+    
+                    <div class="footer__subscribe">
+                        <input type="email" placeholder="이메일을 입력해 주세요." class="footer__input">
+    
+                        <button class="button button--flex footer__button">
+                            Login
+                            <i class="ri-arrow-right-up-line button__icon"></i>
+                        </button>
+                    </div>
+                </div>
+    
+                <div class="footer__content">
+                    <h3 class="footer__title">Our Address</h3>
+    
+                    <ul class="footer__data">
+                        <li class="footer__information">대구광역시 중구 덕산동 61 반월센트럴타워 9층</li>
+                        <li class="footer__information">입금계좌: 영한은행 353901-01-010101 이영지(영블러드)</li>
+                    </ul>
+                </div>
+    
+                <div class="footer__content">
+                    <h3 class="footer__title">Contact Us</h3>
+    
+                    <ul class="footer__data">
+                        <li class="footer__information">고객센터 운영시간: 평일 오전9시 ~ 오후6시</li>
+                        <li class="footer__information">전화: 053-123-0101</li>
+                        <li class="footer__information">팩스: 031-011-01111</li>
+                        <li class="footer__heart">
+                            <a href="https://www.facebook.com/" class="footer__heart-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" class="footer__heart-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://twitter.com/" class="footer__heart-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="footer__content">
+                    <h3 class="footer__title">
+                        협력업체
+                    </h3>
+    
+                    <div class="footer__cards">
+                        <img src="assets/img/card1.png" alt="" class="footer__card">
+                        <img src="assets/img/card2.png" alt="" class="footer__card">
+                        <img src="assets/img/card3.png" alt="" class="footer__card">
+                        <img src="assets/img/card4.png" alt="" class="footer__card">
+                    </div>
+                </div>
+            </div>
+    
+            <p class="footer__copy">Copyright 2022 Young Blood. &#169; All Right Reserved</p>
+        </footer>
+        
+        <!--=============== SCROLL UP ===============-->
+        <a href="#" class="scrollup" id="scroll-up"> 
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+    
+        
+    
+    <script type="text/javascript">
+        //수정하기 버튼(btn)
+        $('input.update_btn').on('click', function (e) {
+            //e.preventDefault();
+            $(this).hide();
+            console.log("update_btn 클릭");
+
+            let update_nickname = $('p.update_nickname').text();
+            console.log(update_nickname);
+            $('p.update_nickname').empty();
+
+            $('form.myDrawerUserInfo').find('input[type=submit]').show();
+            $('form.myDrawerUserInfo').find('input[type=text]').show();
+            //location.reload(); //화면 새로고침
+        })
+
+        //수정하기 버튼(submit)
+        $('form.myDrawerUserInfo').on('submit', function (e) {
+            e.preventDefault();
+            //var userNickname = $('input[type=text].userNickname').val();
+            //var action = '/pj/drawer/doUpdateDatePuzzle';
+            $.ajax({
+                type: 'POST',
+                url: this.action,
+                data: $(this).serialize(),
+                success: function (json) {
+                    console.log(json);
+                    alert(json + '닉네임을 변경하였습니다!');
+                    $('form.myDrawerUserInfo').find('input[type=submit]').hide(); //submit 버튼 hide
+                    $('form.myDrawerUserInfo').find('input[type=text]').hide(); //input text hide
+                    $('input.update_btn').show();
+                    $('p.update_nickname').text(json);
+                    $("#loginNav ul li.userInfo").text(json); //헤더 닉네임 변경
+                    //location.reload(); //화면 새로고침
+
+                    //console.log(data.countNum.likeCountNum);
+                    //alert('성공 0');
+                    //$('p.like_text').removeClass();
+                    //$(this).children('p').addClass('like_text');
+                    //$('p.like_text').text(data.countNum.likeCountNum);
+                },
+                error: () => {
+                    alert('실패하였습니다ㅜㅜㅜ');
+                }
+            });
+
+        });
+
+        //datePuzzle 조각 한개를 클릭했을 때
+        $('form.myDrawer_datePuzzle').on('submit', function (e) {
+            e.preventDefault();
+            var heart_confirm = confirm("♥하트♥로 퍼즐을 채우시겠습니까? \n 작성한 글을 보려면 취소를 눌러주세요!");
+            if (heart_confirm == true) {
+                if ($("input[name='heartNum']").val() == 0) {
+
+                    alert("보유하신 ♥하트♥가 없습니다. 고민소각장에서 댓글을 작성하고 하트를 받아주세요!");
+                } else if ($(this).children("input[type=submit]").attr('class') == 'pz-tt_dt') {
+                    alert("이미 모두 채워진 퍼즐입니다.");
+                } else {
+                    //가지고 있는 하트수에 -1 한 후 퍼즐조각 그림 바꾸기
+                    $.ajax({
+                        type: 'POST',
+                        url: this.action,
+                        data: $(this).serialize(),
+                        success: (data) => {
+                            console.log(data);
+                            alert("하트를 한 개 소비하였습니다!")
+
+
+                            location.reload(); //화면 새로고침
+
+                        },
+                        error: () => {
+                            alert('서버 오류로 실패하였습니다');
+                        }
+                    });
+                }
+
+            } else if (heart_confirm == false) {
+                //해당하는 날짜의 생각조각 혹은 일기조각 글 띄우기 // 없으면 "작성한 글은 없습니다!"
+                var puzzle_date = $(this).prev().val();
+                popUpSearchDrawer("searchDrawerPopUp", 650, 400, puzzle_date);
+            }
+
+
+
+        })
+        //function gopagePost(pageUrl) {
+        //   document.myDrawer.action= pageUrl; 
+        //   document.myDrawer.method= "post"; 
+        //   document.myDrawer.submit();
+        //}
+
+        //생각조각 일기조각 게시글 팝업
+        function popUpSearchDrawer(goUrl, popWidth, popHeight, puzzle_date) {
+            let windowWidth = window.screen.width;
+            let windowHeight = window.screen.height;
+
+            let popupX = (windowWidth / 2) - popWidth / 2;
+            let popupY = (windowHeight / 2) - popHeight / 2;
+
+            //let popupSearchDrawerUrl = "http://localhost:8080/pj" + "/drawer/" + goUrl;
+            let popupSearchDrawerUrl = getContextPath() + "/drawer/" + goUrl + "?puzzle_date=" + puzzle_date;
+            let popupSearchDrawerTitle = "생각조각 일기조각 게시글";
+            let popupSearchDrawerOption = "width=" + popWidth + "px, height=" + popHeight + "px, top=" + popupY +
+                "px, left=" + popupX + "px";
+
+            window.open(popupSearchDrawerUrl, popupSearchDrawerTitle, popupSearchDrawerOption);
+
+        }
+
+    
+    </script>
+</body>

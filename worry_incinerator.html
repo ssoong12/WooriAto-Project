@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--=============== FAVICON ===============-->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+  <!--=============== REMIX ICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="assets/css/worry_incinerator.css">
+
+  <title>고민소각장</title>
+</head>
+<body>
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">
+            <i class="ri-bear-smile-line nav__logo-icon"></i>우리아토
+        </a>
+
+        <div class="nav__menu-login" id="nav-menu-login">
+            <ul class="nav__list nav__menu-login__ul">
+                <li class="nav__item nav__menu-login__li">
+                    <a href="#" class="nav__menu-login__a">로그인</a>
+                </li>
+                <li class="nav__item nav__menu-login__li">
+                    <a href="#" class="nav__menu-login__a">회원가입</a>
+                </li>
+                <li class="nav__item nav__menu-login__li">
+                    <a href="#" class="nav__menu-login__a">나의 서랍</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="#home" class="nav__link">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#thinking" class="nav__link">365일 생각조각</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#diary" class="nav__link">365일 일기조각</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#incinerator" class="nav__link active-link">고민소각장</a>
+                </li>
+            </ul>
+
+            <!-- 모바일 네비게이션 close 버튼 -->
+            <div class="nav__close" id="nav-close">
+                <i class="ri-close-line"></i>
+            </div>
+        </div>
+
+            <div class="nav__btns">
+                <!-- 다크모드 변경 버튼 -->
+                <i class="ri-moon-line change-theme" id="theme-button"></i>
+                <!-- 모바일 네비게이션 opne 버튼 -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+   <!-- main -->
+  <section class="worryIncinerator section container" id="worryIncinerator">
+    <h2>고민소각장</h2>
+
+    <div class="worryIncinerator__head">
+      <ul class="worryCategory" id="worryCategory">
+        <li class="worryCategory__hashtag"><a href="#">#전체 사연</a></li>
+        <li class="worryCategory__hashtag"><a href="#">#기본 사연</a></li>
+        <li class="worryCategory__hashtag"><a href="#">#슬픈 사연</a></li>
+        <li class="worryCategory__hashtag"><a href="#">#억울 사연</a></li>
+        <li class="worryCategory__hashtag"><a href="#">#분노 사연</a></li>
+      </ul>
+
+      <form class="worryCategory__search" action="" method="">
+        <input class="worryCategory__searchPost" type="text" name="searchPost" id="searchPost" placeholder="제목, 내용으로 검색하세요"/>
+        <input class="worryCategory__searchBtn" type="submit" name="searchBtn" id="searchBtn" value="검색"/>
+      </form>
+    </div>
+    
+    <button class="goToWriteBtn button">
+      <a href="#고민상자"> 나도 글쓰기<i class="ri-arrow-right-down-line button__icon"></i></a>
+    </button>
+    <section class="worryPsotWrap" id="worryPostWrap">
+      <!-- 항목별로 다르게 조회하기 -->
+        <ul class="sortPost" id="sortPost">
+          <li class="sortPost__rank"><a href="#">최신순</a></li>
+          <li class="sortPost__rank"><a href="#">인기순</a></li>
+          <li class="sortPost__rank"><form class="sortPost__rank-myWrite" action="" method=""><input type="submit" value="내가 쓴 글"/></form></li>
+          <li class="sortPost__rank"><form class="sortPost__rank-myWrite" action="" method=""><input type="submit" value="내가 쓴 댓글"/></form></li>
+        </ul>
+    <!-- 게시글 모아보기 -->
+    <div class="worryPsotWrap__section">
+        
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+
+        <div class="worryPsotWrap__worryPosts">
+          <div class="worryPsotWrap__worryPosts-front">
+            <p class="worryPsotWrap__worryPosts-hashtag">#기본 사연</p>
+          </div>
+          
+          <div class="worryPsotWrap__worryPosts-back">
+            <p class="worryPsotWrap__worryPosts-post">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <form class="worryPsotWrap__postsLike" action="" method=""><input class="worryPsotWrap__worryPosts-like" type="submit" value="좋아요"/></form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 이동 버튼 -->
+    <div class="thinking-puzzle__sliderBtn">
+        <a href="thinking?current_page=1" class="a">1</a>
+    
+        <a href="thinking?current_page=2" class="a">2</a>
+    
+        <a href="thinking?current_page=3" class="a">3</a>
+    
+        <a href="thinking?current_page=4" class="a">4</a>
+    
+        <a href="thinking?current_page=5" class="a">5</a>
+    
+        <a href="thinking?current_page=6" class="a">6</a>
+    
+        <a href="thinking?current_page=7" class="a">7</a>
+  </div>
+  </section>
+      <!--==================== FOOTER ====================-->
+      <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <a href="#" class="footer__logo">
+                    <i class="ri-bear-smile-line nav__logo-icon"></i> 우리아토
+                </a>
+
+                <h3 class="footer__title">
+                    우리아토에 가입하고, <br> 매일 새로운 소식을 알람받으세요
+                </h3>
+
+                <div class="footer__subscribe">
+                    <input type="email" placeholder="이메일을 입력해 주세요." class="footer__input">
+
+                    <button class="button button--flex footer__button">
+                        Login
+                        <i class="ri-arrow-right-up-line button__icon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Our Address</h3>
+
+                <ul class="footer__data">
+                    <li class="footer__information">대구광역시 중구 덕산동 61 반월센트럴타워 9층</li>
+                    <li class="footer__information">입금계좌: 영한은행 353901-01-010101 이영지(영블러드)</li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Contact Us</h3>
+
+                <ul class="footer__data">
+                    <li class="footer__information">고객센터 운영시간: 평일 오전9시 ~ 오후6시</li>
+                    <li class="footer__information">전화: 053-123-0101</li>
+                    <li class="footer__information">팩스: 031-011-01111</li>
+                    <div class="footer__social">
+                        <a href="https://www.facebook.com/" class="footer__social-link">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="footer__social-link">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="https://twitter.com/" class="footer__social-link">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">
+                    협력업체
+                </h3>
+
+                <div class="footer__cards">
+                    <img src="assets/img/card1.png" alt="" class="footer__card">
+                    <img src="assets/img/card2.png" alt="" class="footer__card">
+                    <img src="assets/img/card3.png" alt="" class="footer__card">
+                    <img src="assets/img/card4.png" alt="" class="footer__card">
+                </div>
+            </div>
+        </div>
+
+        <p class="footer__copy">Copyright 2022 Young Blood. &#169; All Right Reserved</p>
+    </footer>
+    
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up"> 
+        <i class="ri-arrow-up-fill scrollup__icon"></i>
+    </a>
+
+    <!--=============== SCROLL REVEAL. 스크롤 시 항목이 천천히 나타남 ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/jquery-3.6.0.js"></script>
+    <script src="assets/js/main.js"></script>
+
+  
+</body>
+</html>
