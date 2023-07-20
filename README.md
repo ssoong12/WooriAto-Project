@@ -26,5 +26,5 @@ Java Spring, JSP, SCSS를 활용해 "마인드 케어"를 주제로 한 웹 어�
 ![addUser](https://github.com/ssoong12/WooriAto-Project/assets/89440755/79c0da74-272b-4751-8391-f2cea4915a6f)
 ## 로그인
 ![atoUser_login](https://github.com/ssoong12/WooriAto-Project/assets/89440755/4ace3315-a636-4662-87c4-52ed5e9efde0)
-## 마이페이지
+## 나의 서랍(마이페이지)
 ![myPage](https://github.com/ssoong12/WooriAto-Project/assets/89440755/f7052cd4-b0c0-4349-bb6b-5e8cb3ffb290)
